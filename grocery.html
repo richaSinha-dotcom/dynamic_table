@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Grocery</title>
+		
+	</head>
+	<body>
+		<input type="text" name="input1" id="in1">
+		<input type="number" name="input2" id="in2">
+		<button class="but">Submit</button>
+		<div class="container">
+			<div class="gro">
+				<div class="grocary_gro">
+					<h2 class="item">Grocery</h2>
+					<div class="gro_list">
+						
+					</div>
+				</div>
+				
+				
+			</div>
+			
+		</div>
+		<div class="container">
+			
+			<div id="mydata">
+				<b>Current data in the system ...</b>
+				<table id="myTableData"  border="1" cellpadding="2">
+					<tr>
+						<td>&nbsp;</td>
+						<td>SI</td>
+						<td><b>Quantity</b></td>
+						<td><b>Amount</b></td>
+					</tr>
+				</table>
+				&nbsp;
+				
+				
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			//Grocery controller()
+			var groceryController=(function(){
+		
+			})();
+			//UI controller
+			var uiController=(function(){
+				return{
+					getIntput:function(){
+						return{
+						gro_input:document.querySelector('#in1').value,
+						qun_input:document.querySelector('#in2').value
+					}}};
+			})();
+			//GLobal App controller
+			
+						var item=[];
+						var qun=[];
+						var input;
+					
+			var controller=(function(groceryCtrl,uiCtrl){
+				document.querySelector('.but').addEventListener('click', function(){
+					//console.log("button was clicked")
+					//1. get the input data
+					
+					//console.log(input);
+					//2.add item to grocarycontroller
+				input=uiCtrl.getIntput();
+				console.log(item.push(input.gro_input));
+				console.log(qun.push(input.qun_input));
+					var table = document.getElementById("myTableData");
+					var rowCount = table.rows.length;
+					var row = table.insertRow(rowCount);
+					row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+					row.insertCell(1).innerHTML=qun.length;
+					for (var i = 0; i < item.length; i++) {
+						row.insertCell(2).innerHTML= item[i];
+						row.insertCell(3).innerHTML= qun[i];
+						
+					}
+				
+				});
+			})(groceryController,uiController);
+		</script>
+	</body>
+</html>
