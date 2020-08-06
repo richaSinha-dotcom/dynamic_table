@@ -53,6 +53,19 @@
 						qun_input:document.querySelector('#in2').value
 					}}};
 			})();
+			//Detele row
+			function deleteRow(){
+				var table=document.getElementById('myTableData');
+				var rowCount = table.rows.length;
+				var current = '';
+				//console.log(rowCount);
+				
+					
+					console.log(row);
+					//table.deleteRow(i);
+					//rowCount--;
+					
+				}
 			//GLobal App controller
 			
 						var item=[];
@@ -67,18 +80,20 @@
 					//console.log(input);
 					//2.add item to grocarycontroller
 				input=uiCtrl.getIntput();
-				console.log(item.push(input.gro_input));
-				console.log(qun.push(input.qun_input));
+				item.push(input.gro_input);
+				qun.push(input.qun_input);
 					var table = document.getElementById("myTableData");
 					var rowCount = table.rows.length;
 					var row = table.insertRow(rowCount);
-					row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+					row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="deleteRow()">';
 					row.insertCell(1).innerHTML=qun.length;
+					var test1,test2;
 					for (var i = 0; i < item.length; i++) {
-						row.insertCell(2).innerHTML= item[i];
-						row.insertCell(3).innerHTML= qun[i];
-						
+						test1=item[i];
+						test2= qun[i];
 					}
+					row.insertCell(2).innerHTML=test1 ;
+					row.insertCell(3).innerHTML=test2;
 				
 				});
 			})(groceryController,uiController);
